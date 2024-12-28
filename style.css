@@ -75,14 +75,58 @@ h3 {
     color: #8b7f63;
 }
 
+.toggle-list-container
+{
+    position: absolute;
+    top: 20px;
+    max-width: 666px;
+    width: 90%;
+}
+
+#toggle-list
+{
+    position: relative;
+    z-index: 9999;
+    left: 48px;
+    width: 116px; /* Width of the button */
+    height: 28px; /* Height of the button */
+    background-color: #a37858; /* Button background color */
+    color: white; /* Button text color */
+    border: none; /* Remove border */
+    border-top-left-radius: 8px; /* Rounded corners */
+    border-top-right-radius: 8px;
+    font-size: 16px; /* Font size of the button text */
+    cursor: pointer; /* Pointer cursor to indicate it's clickable */
+}
+
+#toggle-list:hover {
+    background-color: #936b51; /* Change background on hover */
+}
+
+.recipe-list-container {
+    display: none; /* Hide by default */
+    position: absolute;
+    z-index: 9998;
+    max-width: 666px;
+    width: 90%;
+    top: 48px;
+    background-color: #fff7e2;
+    padding: 24px 12px;
+    border-radius: 28px;
+}
+
 /* Make list items clickable with a pointer cursor */
 .recipe-list li {
     cursor: pointer;
+    list-style: none;
+    padding: 0;
+    margin: 4px 0;
+    color: #8b7f63;
 }
 
 /* Optional: Add some hover effects for better user experience */
 .recipe-list li:hover {
-    color: #8b7f63; /* Change text color on hover */
+    color: black; /* Change text color on hover */
     text-decoration: underline; /* Underline text on hover */
 }
 

@@ -9,8 +9,14 @@
     <script src="/app.js"></script>
 </head>
 <body>
-    <div>
-        <h1>Recipes</h1>
+    <div class="toggle-list-container">
+        <button id="toggle-list">Recipes</button>
+    </div>
+    <div class="recipe-list-container">
+        <div class="binding-shadow">
+            <div class="binding"></div>
+        </div>
+
         <ul class="recipe-list"></ul>
     </div>
 <section>
@@ -18,7 +24,10 @@
         <div class="binding-shadow">
             <div class="binding"></div>
         </div>
-        <h2 class="title">Title</h2>
+
+        <h2 class="title">
+            <!-- Title dynamically inserted via JavaScript -->
+        </h2>
         <div class="ingredients">
             <h3>Ingredients</h3>
             <ul>

@@ -190,8 +190,11 @@ function populateRecipeList() {
     // Create list items for each recipe
     recipeKeys.forEach(key => {
         const listItem = document.createElement("li");
-        listItem.textContent = key; // Display the key as the list item
-        listItem.addEventListener("click", () => displayRecipe(key)); // Add click event
+        listItem.textContent = recipes[key].title; // Display the title
+        listItem.addEventListener("click", () => {
+            displayRecipe(key);
+            toggleRecipeList(); // Hide the list after selection
+        });
         recipeList.appendChild(listItem); // Add to the list
     });
 }
@@ -208,8 +211,28 @@ function displayRecipe(recipeKey) {
         .join("");
 }
 
-// Initialize the list and setup event listeners when the page loads
+// Function to toggle the visibility of the recipe list
+function toggleRecipeList() {
+    const listContainer = document.querySelector(".recipe-list-container");
+    const isVisible = listContainer.style.display === "block";
+    listContainer.style.display = isVisible ? "none" : "block";
+}
+
+// Hide the recipe list when clicking outside
+document.addEventListener("click", (event) => {
+    const listContainer = document.querySelector(".recipe-list-container");
+    const toggleButton = document.getElementById("toggle-list");
+    if (
+        !listContainer.contains(event.target) && 
+        event.target !== toggleButton
+    ) {
+        listContainer.style.display = "none";
+    }
+});
+
+// Initialize the list and button functionality
 document.addEventListener("DOMContentLoaded", () => {
     populateRecipeList(); // Populate the clickable list
     displayRecipe(Object.keys(recipes)[0]); // Display the first recipe by default
+    document.getElementById("toggle-list").addEventListener("click", toggleRecipeList);
 });
