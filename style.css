@@ -6,24 +6,83 @@
     box-sizing: border-box;
 }
 
-section{
-    margin: 0 auto;
+body {
+    background-color: #f5e5c0; /* Beige background */
+    display: flex;
+    justify-content: center;
+    align-items: top;
+    height: 100vh;
+    margin: 0;
+}
+
+section {
+    padding: 48px 0;
     max-width: 666px;
+    width: 90%;
+    position: relative;
 }
 
-.recipe{
-    margin: 20px;
+.binding-shadow {
+    width: 64px; /* Small dark brown spot */
+    height: 32px;
+    background-color: #936b51; /* Dark brown tone */
+    position: absolute; /* Position relative to .recipe */
+    top: -14px; /* Overlaps the top of the recipe */
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 8px;
+    z-index: 2; /* Stays on top of the recipe */
 }
 
-.title{
+.binding {
+    width: 64px; /* Small dark brown spot */
+    height: 26px;
+    background-color: #a37858; /* Dark brown tone */
+    position: absolute; /* Position relative to .recipe */
+    border-radius: 8px;
+    z-index: 2; /* Stays on top of the recipe */
+}
+
+.recipe {
+    padding: 20px;
+    background-color: white; /* White card area */
+    border-radius: 28px;
+    position: relative; /* Enables child positioning */
+}
+
+.title { 
+    margin-top: 12px;
     text-align: center;
+    margin-bottom: 16px;
+    font-size: 24px;
+}
+
+h3 {
+    margin: 16px 0;
+    font-weight: bold;
+}
+
+.ingredients ul,
+.instructions ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.ingredients ul li,
+.instructions ul li {
     margin-bottom: 8px;
+    color: #8b7f63;
 }
 
-.sections{
-    margin: 8px 0;
+/* Make list items clickable with a pointer cursor */
+.recipe-list li {
+    cursor: pointer;
 }
 
-.seperation{
-    margin: 4px 0;
+/* Optional: Add some hover effects for better user experience */
+.recipe-list li:hover {
+    color: #8b7f63; /* Change text color on hover */
+    text-decoration: underline; /* Underline text on hover */
 }
+
