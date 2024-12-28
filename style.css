@@ -87,8 +87,9 @@ h3 {
 {
     position: relative;
     z-index: 9999;
-    left: 48px;
-    width: 116px; /* Width of the button */
+    left: 44px;
+    min-width: 80px;
+    width: 20%; /* Width of the button */
     height: 28px; /* Height of the button */
     background-color: #a37858; /* Button background color */
     color: white; /* Button text color */
