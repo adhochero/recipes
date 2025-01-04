@@ -21,10 +21,9 @@ const recipes = {
         ]
     },
 
-    lasagna: {
-        title: "Lasagna",
+    mozzarella: {
+        title: "Mozzarella",
         ingredients: [
-            "Mozzarella:",
             "1/4 cup cashew",
             "1 teaspoon lemon juice",
             "1 teaspoon maple syrup",
@@ -33,9 +32,17 @@ const recipes = {
             "2 tablespoons tapioca starch",
             "1 teaspoon salt",
             "1/3 cup refined coconut oil, melted",
-            "1 1/2 cup water",
-            "-",
-            "Ricotta:",
+            "1 1/2 cup water"
+        ],
+        instructions: [
+            " ",
+            " "
+        ]
+    },
+
+    tofuRicotta: {
+        title: "Tofu Ricotta",
+        ingredients: [
             "1 block (14 oz) firm tofu, pressed",
             "2 tablespoons nutritional yeast",
             "1 tablespoons lemon juice",
@@ -48,6 +55,24 @@ const recipes = {
         instructions: [
             " ",
             " "
+        ]
+    },
+
+    tofuScramble: {
+        title: "Tofu Scramble",
+        ingredients: [
+            "(1) 16-ounce black of firm tofu",
+            "2 tablespoons nutritional yeast",
+            "1/2 teaspoon salt",
+            "1/4 teaspoon tumeric",
+            "1/4 teaspoon garlic powder",
+            "1/4 teaspoon black pepper",
+            "2 tablespoons unflavored milk",
+        ],
+        instructions: [
+            "In a pan over medium heat, break apart the block of tofu.",
+            "Add in the rest of the ingredients and stir to combine until heated through.",
+            "Use in breakfast burrito with sausage, hashbrowns, spinach, cheese, and sourcream."
         ]
     },
 
@@ -164,6 +189,28 @@ const recipes = {
             "add in oil and most water, and mix until dough ball forms. if its too dry add in more water.",
             "roll out dough 1/4 inch thick and cut into bite sized peices.",
             "place pieces on parchment papper lined backing sheet and bake for 15 - 17mins."
+        ]
+    },
+
+    nachoSauce: {
+        title: "Nacho Sauce",
+        ingredients: [
+            "2 cups raw cashews",
+            "3 tablespoons lemon juice",
+            "2-4 cup water",
+            "1/2 cup nutritional yeast",
+            "1/2 teaspoon smoked paprika",
+            "1 teaspoon garlic powder",
+            "1 teaspoon onion powder",
+            "1/2 teaspoon chili powder",
+            "2 teaspoons salt",
+            "1-2 teaspoons sriracha",
+            "1/2 teaspoon tumeric",
+        ],
+        instructions: [
+            "soak raw cashews in boiling water for 20mins",
+            "blend all ingredients together till smooth",
+            "heat in a pot at medium, it will thicken as it heats up",
         ]
     },
 
