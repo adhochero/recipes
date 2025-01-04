@@ -27,11 +27,11 @@ section {
     height: 32px;
     background-color: #936b51; /* Dark brown tone */
     position: absolute; /* Position relative to .recipe */
-    top: -14px; /* Overlaps the top of the recipe */
+    top: 32px; /* Overlaps the top of the recipe */
     left: 50%;
     transform: translateX(-50%);
     border-radius: 8px;
-    z-index: 2; /* Stays on top of the recipe */
+    z-index: 10; /* Stays on top of the recipe */
 }
 
 .binding {
@@ -40,7 +40,7 @@ section {
     background-color: #a37858; /* Dark brown tone */
     position: absolute; /* Position relative to .recipe */
     border-radius: 8px;
-    z-index: 2; /* Stays on top of the recipe */
+    z-index: 10; /* Stays on top of the recipe */
 }
 
 .recipe {
@@ -48,6 +48,27 @@ section {
     background-color: white; /* White card area */
     border-radius: 28px;
     position: relative; /* Enables child positioning */
+}
+
+.recipe.cover {
+    background-color: #bb8b67; /* Darker background for the cover */
+    color: white; /* Adjust text color for contrast */
+}
+
+.cover-image-container{
+    margin: 0 auto;
+    padding: 25% 0;
+    width: 75%;
+}
+
+.cover-image{
+    width: 100%;
+}
+
+.cover-title{
+    margin-top: 16%;
+    text-align: center;
+    font-size: clamp(1rem, 8vw, 3.5rem);
 }
 
 .title { 
@@ -107,7 +128,7 @@ h3 {
 .recipe-list-container {
     display: none; /* Hide by default */
     position: absolute;
-    z-index: 9998;
+    z-index: 9;
     max-width: 666px;
     width: 90%;
     top: 48px;

@@ -184,55 +184,87 @@ function populateRecipeList() {
     const recipeList = document.querySelector(".recipe-list");
     recipeList.innerHTML = ""; // Clear the list
 
-    // Get sorted keys of the recipes object
-    const recipeKeys = Object.keys(recipes).sort();
-
-    // Create list items for each recipe
-    recipeKeys.forEach(key => {
-        const listItem = document.createElement("li");
-        listItem.textContent = recipes[key].title; // Display the title
-        listItem.addEventListener("click", () => {
-            displayRecipe(key);
-            toggleRecipeList(); // Hide the list after selection
+    // Create sorted list items for each recipe
+    Object.keys(recipes)
+        .sort()
+        .forEach(key => {
+            const listItem = document.createElement("li");
+            listItem.textContent = recipes[key].title;
+            listItem.addEventListener("click", () => {
+                displayRecipe(key);
+                toggleRecipeList(); // Hide the list after selection
+            });
+            recipeList.appendChild(listItem);
         });
-        recipeList.appendChild(listItem); // Add to the list
-    });
 }
 
-// Function to display a specific recipe
+// Function to display the "cover page"
+function displayCover() {
+    const recipeContainer = document.querySelector(".recipe");
+
+    // Add the 'cover' class for the cover page
+    recipeContainer.classList.add("cover");
+
+    // Replace the inner HTML of the recipe container for the cover page
+    recipeContainer.innerHTML = `
+        <h2 class="cover-title">Some Recipes</h2>
+        <div class="cover-image-container">
+            <img src="/assets/cutlery.png" alt="Recipe Book Cover" class="cover-image">
+        </div>
+    `;
+}
+
 function displayRecipe(recipeKey) {
+    const recipeContainer = document.querySelector(".recipe");
+
+    // Remove the 'cover' class for recipes
+    recipeContainer.classList.remove("cover");
+
+    // Reset the structure for recipe content
+    recipeContainer.innerHTML = `
+        <h2 class="title"></h2>
+        <div class="ingredients"></div>
+        <div class="instructions"></div>
+    `;
+
     const recipe = recipes[recipeKey];
-    document.querySelector(".title").textContent = recipe.title;
-    document.querySelector(".ingredients ul").innerHTML = recipe.ingredients
-        .map(ingredient => `<li>${ingredient}</li>`)
-        .join("");
-    document.querySelector(".instructions ul").innerHTML = recipe.instructions
-        .map(instruction => `<li>${instruction}</li>`)
-        .join("");
+    // Populate the recipe content dynamically
+    updateSection(".title", recipe.title);
+    updateSection(
+        ".ingredients",
+        `<h3>Ingredients</h3>
+         <ul>${recipe.ingredients.map(item => `<li>${item}</li>`).join("")}</ul>`
+    );
+    updateSection(
+        ".instructions",
+        `<h3>Instructions</h3>
+         <ul>${recipe.instructions.map(step => `<li>${step}</li>`).join("")}</ul>`
+    );
 }
 
-// Function to toggle the visibility of the recipe list
+// Helper to update a section's content
+function updateSection(selector, content) {
+    document.querySelector(selector).innerHTML = content;
+}
+
+// Toggle the visibility of the recipe list
 function toggleRecipeList() {
     const listContainer = document.querySelector(".recipe-list-container");
-    const isVisible = listContainer.style.display === "block";
-    listContainer.style.display = isVisible ? "none" : "block";
+    listContainer.style.display = listContainer.style.display === "block" ? "none" : "block";
 }
 
 // Hide the recipe list when clicking outside
-document.addEventListener("click", (event) => {
+document.addEventListener("click", event => {
     const listContainer = document.querySelector(".recipe-list-container");
     const toggleButton = document.getElementById("toggle-list");
-    if (
-        !listContainer.contains(event.target) && 
-        event.target !== toggleButton
-    ) {
+    if (!listContainer.contains(event.target) && event.target !== toggleButton) {
         listContainer.style.display = "none";
     }
 });
 
-// Initialize the list and button functionality
+// Initialize the page
 document.addEventListener("DOMContentLoaded", () => {
-    populateRecipeList(); // Populate the clickable list
-    displayRecipe(Object.keys(recipes)[0]); // Display the first recipe by default
+    populateRecipeList(); // Populate the recipe list
+    displayCover(); // Display the cover page by default
     document.getElementById("toggle-list").addEventListener("click", toggleRecipeList);
 });
